@@ -1,0 +1,64 @@
+body{
+    text-align: center;
+    background-color: rgb(255, 150, 246);
+    border: 10px solid rgb(204, 0, 255);
+}
+
+#nav{
+    background-color: #83ef4d;
+    color: rgb(255, 255, 0);
+    text-shadow: 5px 5px 5px rgb(255, 255, 100);
+    padding: 15px;
+    margin: 20px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 10px #725929;
+}
+p{
+    color: rgb(27, 255, 10);
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 2px -2px 2px rgb(13, 97, 7);
+}
+#show_sketch{
+    float:right;
+    box-shadow: 10px 5px 5px rgb(101, 101, 101);
+    margin-right: 20px;
+}
+#show_sketch:hover {
+     box-shadow:none; 
+}
+#clear{
+    float:right;
+    box-shadow: 10px 5px 5px rgb(101, 101, 101);
+    margin-right: 20px;
+}
+#clear:hover {
+     box-shadow:none; 
+}
+canvas{
+    border: 5px solid wheat;
+    border-radius: 20px;
+    animation-name: example;
+    animation-duration: 6s;
+    margin-top: 50px;
+    animation-iteration-count: infinite;
+}
+@keyframes example{
+    0%{box-shadow: 10px 10px 10px rgb(0, 255, 0);}
+    50%{box-shadow: 10px 10px 10px rgb(0, 0, 255);}
+    100%{box-shadow: 10px 10px 10px rgb(0, 255, 0);}
+}
+.close{
+    margin-right: 15px;
+    font-size: 30px;
+}
+#rtopic{
+    font-size: 50px;
+}
+.footer{
+    background-color: rgb(255, 157, 0);
+    font-size: 20px;
+    padding:8px;
+    font-weight: bold;
+    color: white;
+}
