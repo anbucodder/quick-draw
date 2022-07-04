@@ -1,9 +1,43 @@
-const objects=["fan","basketball","football","ball","clock","ears","phone" ,"cake"," cookie","donut"]
-function topic(){
-    var topic=objects[Math.round(Math.random()*10)];
-    document.getElementById("rtopic").innerHTML="Your topic is : "+topic;  
-    localStorage.setItem("topic",topic);
+var timer=0;
+function preload(){
+    classifier = ml5.imageClassifier("DoodleNet");
 }
-function go(){
-    window.location="main.html";
+function setup(){
+    canvas = createCanvas(900,400);
+    canvas.center();
+    canvas.background("white");
+    canvas.mouseReleased(classifyCanvas);
+    synth = window.speechSynthesis;
+}
+function draw(){
+    strokeWeight(5);
+    stroke(0);
+    if(mouseIsPressed){
+        line(pmouseX,pmouseY,mouseX,mouseY);
+    }
+}
+function settopic(){
+    document.getElementById("topic").innerHTML="Topic : "+localStorage.getItem('topic')
+    setInterval(
+        function() {
+            element.innerHTML += "Hello"
+        }, 1000);
+}
+function clearCanvas(){
+    canvas.background("white");
+}
+function classifyCanvas(){
+    classifier.classify(canvas,gotResult);
+}
+function gotResult(error,results){
+    if(error){
+        console.error(error);
+    }
+    else{
+        console.log(results);
+        document.getElementById("label").innerHTML="Label : "+results[0].label;
+        document.getElementById("confidence").innerHTML="Confidence : "+Math.round(results[0].confidence*100)+"%";
+        var utterthis = new SpeechSynthesisUtterance(results[0].label);
+        synth.speak(utterthis);
+    }
 }
